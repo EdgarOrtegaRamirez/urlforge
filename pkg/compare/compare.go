@@ -10,16 +10,16 @@ import (
 
 // ComparisonResult represents the comparison of two URLs.
 type ComparisonResult struct {
-	URL1          string            `json:"url1"`
-	URL2          string            `json:"url2"`
-	Identical     bool              `json:"identical"`
-	Similarity    float64           `json:"similarity"`
-	Differences   []Difference      `json:"differences,omitempty"`
-	SameHost      bool              `json:"same_host"`
-	SamePath      bool              `json:"same_path"`
-	SameScheme    bool              `json:"same_scheme"`
-	SameQueryKeys bool              `json:"same_query_keys"`
-	QueryDiff     *QueryDifference  `json:"query_diff,omitempty"`
+	URL1          string           `json:"url1"`
+	URL2          string           `json:"url2"`
+	Identical     bool             `json:"identical"`
+	Similarity    float64          `json:"similarity"`
+	Differences   []Difference     `json:"differences,omitempty"`
+	SameHost      bool             `json:"same_host"`
+	SamePath      bool             `json:"same_path"`
+	SameScheme    bool             `json:"same_scheme"`
+	SameQueryKeys bool             `json:"same_query_keys"`
+	QueryDiff     *QueryDifference `json:"query_diff,omitempty"`
 }
 
 // Difference represents a specific difference between two URLs.
@@ -44,7 +44,7 @@ type QueryParam struct {
 
 // ParamDiff represents a difference in a query parameter value.
 type ParamDiff struct {
-	Key   string `json:"key"`
+	Key    string `json:"key"`
 	Value1 string `json:"value1"`
 	Value2 string `json:"value2"`
 }
@@ -228,7 +228,7 @@ func compareQueryParams(q1, q2 map[string][]string) *QueryDifference {
 				for i, val := range v1 {
 					if i < len(v2) && val != v2[i] {
 						diff.Different = append(diff.Different, ParamDiff{
-							Key:   k,
+							Key:    k,
 							Value1: val,
 							Value2: v2[i],
 						})

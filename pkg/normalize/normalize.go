@@ -19,31 +19,31 @@ const (
 
 // Normalizer handles URL normalization.
 type Normalizer struct {
-	level         NormalizationLevel
-	lowercaseHost bool
-	lowercaseScheme bool
-	removeWWW     bool
-	sortParams    bool
-	removeFragment bool
+	level               NormalizationLevel
+	lowercaseHost       bool
+	lowercaseScheme     bool
+	removeWWW           bool
+	sortParams          bool
+	removeFragment      bool
 	removeTrailingSlash bool
 	removeDefaultPorts  bool
-	stripAuth     bool
-	decodeUnreserved bool
+	stripAuth           bool
+	decodeUnreserved    bool
 }
 
 // New creates a new Normalizer with standard settings.
 func New() *Normalizer {
 	return &Normalizer{
-		level:              LevelStandard,
-		lowercaseHost:      true,
-		lowercaseScheme:    true,
-		removeWWW:          false,
-		sortParams:         true,
-		removeFragment:     false,
+		level:               LevelStandard,
+		lowercaseHost:       true,
+		lowercaseScheme:     true,
+		removeWWW:           false,
+		sortParams:          true,
+		removeFragment:      false,
 		removeTrailingSlash: false,
-		removeDefaultPorts: true,
-		stripAuth:          false,
-		decodeUnreserved:   true,
+		removeDefaultPorts:  true,
+		stripAuth:           false,
+		decodeUnreserved:    true,
 	}
 }
 

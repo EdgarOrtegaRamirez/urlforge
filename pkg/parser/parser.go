@@ -20,15 +20,15 @@ type ParsedURL struct {
 	Query    string `json:"query,omitempty"`
 	Fragment string `json:"fragment,omitempty"`
 	// Derived
-	Domain   string            `json:"domain,omitempty"`
-	TLD      string            `json:"tld,omitempty"`
-	Subdomain string           `json:"subdomain,omitempty"`
-	PathSegments []string      `json:"path_segments,omitempty"`
-	QueryParams  []QueryParam  `json:"query_params,omitempty"`
-	IsHTTPS     bool           `json:"is_https"`
-	IsTrailingSlash bool       `json:"is_trailing_slash"`
-	TotalLength int            `json:"total_length"`
-	Components  map[string]int `json:"components_length"`
+	Domain          string         `json:"domain,omitempty"`
+	TLD             string         `json:"tld,omitempty"`
+	Subdomain       string         `json:"subdomain,omitempty"`
+	PathSegments    []string       `json:"path_segments,omitempty"`
+	QueryParams     []QueryParam   `json:"query_params,omitempty"`
+	IsHTTPS         bool           `json:"is_https"`
+	IsTrailingSlash bool           `json:"is_trailing_slash"`
+	TotalLength     int            `json:"total_length"`
+	Components      map[string]int `json:"components_length"`
 }
 
 // QueryParam represents a single query parameter.
@@ -49,16 +49,16 @@ func Parse(raw string) (*ParsedURL, error) {
 	}
 
 	parsed := &ParsedURL{
-		Raw:            raw,
-		Scheme:         strings.ToLower(u.Scheme),
-		Host:           u.Hostname(),
-		Path:           u.Path,
-		Query:          u.RawQuery,
-		Fragment:       u.Fragment,
-		IsHTTPS:        strings.ToLower(u.Scheme) == "https",
+		Raw:             raw,
+		Scheme:          strings.ToLower(u.Scheme),
+		Host:            u.Hostname(),
+		Path:            u.Path,
+		Query:           u.RawQuery,
+		Fragment:        u.Fragment,
+		IsHTTPS:         strings.ToLower(u.Scheme) == "https",
 		IsTrailingSlash: strings.HasSuffix(u.Path, "/") && u.Path != "/",
-		TotalLength:    len(raw),
-		Components:     make(map[string]int),
+		TotalLength:     len(raw),
+		Components:      make(map[string]int),
 	}
 
 	// Default path to "/" if empty

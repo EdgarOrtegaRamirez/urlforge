@@ -45,7 +45,7 @@ func TestValidateStrict(t *testing.T) {
 		wantValid bool
 	}{
 		{"valid https", "https://example.com", true},
-		{"ip address warning", "https://192.168.1.1", true},  // warning, not error
+		{"ip address warning", "https://192.168.1.1", true},          // warning, not error
 		{"auth info warning", "https://user:pass@example.com", true}, // warning
 	}
 

@@ -237,9 +237,9 @@ func (qb *QueryBuilder) Diff(other *QueryBuilder) *QueryDiff {
 			diff.Added = append(diff.Added, Param{Key: key, Value: val})
 		} else if currentVal != val {
 			diff.Modified = append(diff.Modified, ParamChange{
-				Key:     key,
-				Old:     currentVal,
-				New:     val,
+				Key: key,
+				Old: currentVal,
+				New: val,
 			})
 		}
 	}

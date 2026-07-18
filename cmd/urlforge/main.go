@@ -411,13 +411,13 @@ func runNormalize(urls []string, level, output string) error {
 
 	if output == "json" {
 		type normResult struct {
-			Original  string `json:"original"`
+			Original   string `json:"original"`
 			Normalized string `json:"normalized"`
 		}
 		var output []normResult
 		for i, r := range results {
 			output = append(output, normResult{
-				Original:  urls[i],
+				Original:   urls[i],
 				Normalized: r,
 			})
 		}

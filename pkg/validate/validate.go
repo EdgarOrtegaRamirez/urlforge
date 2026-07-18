@@ -20,10 +20,10 @@ const (
 
 // ValidationResult represents the result of URL validation.
 type ValidationResult struct {
-	Valid    bool               `json:"valid"`
-	URL      string             `json:"url"`
-	Level    string             `json:"level"`
-	Errors   []ValidationError  `json:"errors,omitempty"`
+	Valid    bool                `json:"valid"`
+	URL      string              `json:"url"`
+	Level    string              `json:"level"`
+	Errors   []ValidationError   `json:"errors,omitempty"`
 	Warnings []ValidationWarning `json:"warnings,omitempty"`
 }
 
@@ -43,16 +43,16 @@ type ValidationWarning struct {
 
 // Validator validates URLs with configurable rules.
 type Validator struct {
-	level            ValidationLevel
-	allowedSchemes   map[string]bool
-	blockedSchemes   map[string]bool
-	blockedDomains   []string
-	maxLength        int
-	requireScheme    bool
-	requireHost      bool
-	allowedPorts     map[string]bool
-	blockedPorts     map[string]bool
-	customPatterns   map[string]*regexp.Regexp
+	level          ValidationLevel
+	allowedSchemes map[string]bool
+	blockedSchemes map[string]bool
+	blockedDomains []string
+	maxLength      int
+	requireScheme  bool
+	requireHost    bool
+	allowedPorts   map[string]bool
+	blockedPorts   map[string]bool
+	customPatterns map[string]*regexp.Regexp
 }
 
 // New creates a new Validator with standard settings.
@@ -256,10 +256,10 @@ func (v *Validator) ValidateBatch(urls []string) []*ValidationResult {
 // GetSummary returns a summary of validation results.
 func GetSummary(results []*ValidationResult) map[string]int {
 	summary := map[string]int{
-		"total":   len(results),
-		"valid":   0,
-		"invalid": 0,
-		"errors":  0,
+		"total":    len(results),
+		"valid":    0,
+		"invalid":  0,
+		"errors":   0,
 		"warnings": 0,
 	}
 	for _, r := range results {

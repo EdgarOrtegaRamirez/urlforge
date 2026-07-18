@@ -167,10 +167,10 @@ func TestQueryDifference(t *testing.T) {
 
 func TestSimilarity(t *testing.T) {
 	tests := []struct {
-		name     string
-		url1     string
-		url2     string
-		minSim   float64
+		name   string
+		url1   string
+		url2   string
+		minSim float64
 	}{
 		{"identical", "https://example.com", "https://example.com", 1.0},
 		{"same host", "https://example.com/a", "https://example.com/b", 0.5},

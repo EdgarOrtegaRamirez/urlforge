@@ -84,10 +84,10 @@ func TestParseBasic(t *testing.T) {
 
 func TestParseDomain(t *testing.T) {
 	tests := []struct {
-		name         string
-		url          string
-		wantDomain   string
-		wantTLD      string
+		name          string
+		url           string
+		wantDomain    string
+		wantTLD       string
 		wantSubdomain string
 	}{
 		{
@@ -97,17 +97,17 @@ func TestParseDomain(t *testing.T) {
 			wantTLD:    "com",
 		},
 		{
-			name:         "subdomain",
-			url:          "https://api.example.com",
-			wantDomain:   "example",
-			wantTLD:      "com",
+			name:          "subdomain",
+			url:           "https://api.example.com",
+			wantDomain:    "example",
+			wantTLD:       "com",
 			wantSubdomain: "api",
 		},
 		{
-			name:         "multi-level subdomain",
-			url:          "https://v1.api.example.co.uk",
-			wantDomain:   "example",
-			wantTLD:      "co.uk",
+			name:          "multi-level subdomain",
+			url:           "https://v1.api.example.co.uk",
+			wantDomain:    "example",
+			wantTLD:       "co.uk",
 			wantSubdomain: "v1.api",
 		},
 	}
@@ -161,8 +161,8 @@ func TestParseQueryParams(t *testing.T) {
 
 func TestParseHTTPS(t *testing.T) {
 	tests := []struct {
-		name    string
-		url     string
+		name      string
+		url       string
 		wantHTTPS bool
 	}{
 		{"https", "https://example.com", true},
